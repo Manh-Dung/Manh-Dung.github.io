@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nguyen Giap — Mobile Apps: PDF, Period Tracker & Mood Journal</title>
-    <meta name="description" content="Apps by Nguyen Giap. PDF Reader & Converter, Pippi Period Tracker, and Mood Tracker Daily Journal — productivity and wellness tools for iOS and Android.">
-    <meta property="og:title" content="Nguyen Giap — Mobile Apps">
+    <title>Nguyễn Mạnh Dũng — Mobile Apps: PDF, Period Tracker & Mood Journal</title>
+    <meta name="description" content="Apps by Nguyễn Mạnh Dũng. PDF Reader & Converter, Pippi Period Tracker, and Mood Tracker Daily Journal. Available on iOS and Android.">
+    <meta property="og:title" content="Nguyễn Mạnh Dũng — Mobile Apps">
     <meta property="og:description" content="PDF Reader & Converter, Pippi Period Tracker, Mood Tracker Daily Journal. Available on iOS and Android.">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -30,9 +30,7 @@
             --accent-dim: rgba(232,71,42,0.14);
             --accent-glow:rgba(232,71,42,0.22);
             --green:      #3ddc84;
-            --green-dim:  rgba(61,220,132,0.12);
             --pink:       #e0709a;
-            --pink-dim:   rgba(224,112,154,0.12);
             --font:       'Outfit', system-ui, -apple-system, sans-serif;
             --max-w:      1240px;
             --r-sm:       8px;
@@ -121,8 +119,8 @@
         }
         .hero-tag span { width:18px; height:1px; background:var(--fg-3); display:inline-block; }
         .hero-h1 {
-            font-size:clamp(2.8rem,5.5vw,5rem);
-            font-weight:900; letter-spacing:-.06em; line-height:1;
+            font-size:clamp(2.8rem,5vw,4.5rem);
+            font-weight:900; letter-spacing:-.05em; line-height:1;
             color:var(--fg); margin-bottom:1.5rem; text-wrap:balance;
         }
         .hero-h1 b { font-weight:900; color:var(--accent); }
@@ -137,7 +135,15 @@
         .hero-count-label { font-size:.75rem; color:var(--fg-3); margin-top:.25rem; font-weight:500; text-transform:uppercase; letter-spacing:.07em; }
 
         .hero-orbs { position:relative; width:220px; flex-shrink:0; }
-        .hero-orbs svg { display:block; }
+        .hero-orbs img {
+            width: 80px; height: 80px; border-radius: 20px;
+            position: absolute; object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.1);
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+        }
+        .hero-orbs .orb-1 { top: 0; left: 70px; transform: scale(1.1); }
+        .hero-orbs .orb-2 { top: 110px; left: 0px; }
+        .hero-orbs .orb-3 { top: 120px; left: 120px; }
 
         /* Ambient glow */
         .hero::before {
@@ -200,13 +206,11 @@
 
         .app-card-top { position:relative; z-index:1; display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; }
         .app-icon-wrap {
-            width:64px; height:64px; border-radius:18px; flex-shrink:0; overflow:hidden;
-            display:flex; align-items:center; justify-content:center; font-size:1.8rem;
+            width:72px; height:72px; border-radius:18px; flex-shrink:0; overflow:hidden;
+            display:flex; align-items:center; justify-content:center;
             border:1px solid var(--border);
         }
-        .app-icon-wrap.pdf    { background:linear-gradient(135deg,#2a0d07,#5c1a0a); }
-        .app-icon-wrap.period { background:linear-gradient(135deg,#2a0714,#5c1030); }
-        .app-icon-wrap.mood   { background:linear-gradient(135deg,#07200e,#0f4a22); }
+        .app-icon-wrap img { width: 100%; height: 100%; object-fit: cover; }
 
         .app-platform-badges { display:flex; flex-direction:column; align-items:flex-end; gap:.3rem; }
         .app-plat {
@@ -215,6 +219,7 @@
         }
         .app-plat.ios    { border-color:rgba(255,255,255,.12); color:rgba(255,255,255,.45); }
         .app-plat.android{ border-color:rgba(61,220,132,.25); color:var(--green); }
+        .app-plat.highlight { border-color:rgba(224,112,154,.35); color:var(--pink); }
 
         .app-card-body { position:relative; z-index:1; flex:1; }
         .app-name {
@@ -225,6 +230,11 @@
             font-size:.82rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
             margin-bottom:.85rem;
         }
+        .app-publisher {
+            font-size: .8rem; color: var(--fg-3); font-weight: 500;
+            display: flex; gap: 0.5rem; margin-top: -0.5rem; margin-bottom: 1rem;
+        }
+
         .app-tagline.pdf    { color:var(--accent); }
         .app-tagline.period { color:var(--pink); }
         .app-tagline.mood   { color:var(--green); }
@@ -265,7 +275,6 @@
         }
         .app-link.ghost:hover { background:rgba(255,255,255,.05); border-color:var(--border-hover); color:var(--fg); }
 
-        /* iOS only tag */
         .app-ios-note {
             font-size:.73rem; color:var(--fg-3); padding:.45rem .8rem;
             border:1px solid var(--border); border-radius:var(--r-sm);
@@ -287,7 +296,16 @@
             font-size:clamp(1.6rem,3vw,2.4rem); font-weight:800; letter-spacing:-.05em; line-height:1.1;
             margin-bottom:.85rem; text-wrap:balance;
         }
-        .dev-desc { font-size:.95rem; color:var(--fg-2); line-height:1.7; margin-bottom:2rem; }
+        .dev-desc { font-size:.95rem; color:var(--fg-2); line-height:1.7; margin-bottom:1.5rem; }
+        .dev-contact {
+            list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem;
+            font-size: .9rem; color: var(--fg-2);
+        }
+        .dev-contact li { display: flex; align-items: center; gap: 0.5rem; }
+        .dev-contact span { color: var(--fg-3); }
+        .dev-contact a { color: var(--fg-2); text-decoration: none; }
+        .dev-contact a:hover { color: var(--fg); }
+
         .dev-links { display:flex; gap:.75rem; flex-wrap:wrap; }
         .dev-link {
             display:inline-flex; align-items:center; gap:.4rem;
@@ -368,17 +386,17 @@
 
     <nav aria-label="Site navigation">
         <div class="nav-inner">
-            <a href="/" class="nav-brand" aria-label="Nguyen Giap apps home">
-                <div class="nav-avatar" aria-hidden="true">NG</div>
+            <a href="/" class="nav-brand" aria-label="Nguyễn Mạnh Dũng apps home">
+                <div class="nav-avatar" aria-hidden="true">ND</div>
                 <div>
-                    <div class="nav-name">Nguyen Giap</div>
+                    <div class="nav-name">Nguyễn Mạnh Dũng</div>
                     <div class="nav-sub">Mobile Developer</div>
                 </div>
             </a>
             <a href="https://play.google.com/store/apps/dev?id=8268045918209277975"
                class="nav-store-link" target="_blank" rel="noopener noreferrer">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.33.18.7.22 1.05.1l12.3-7.1-2.63-2.63-10.72 9.63zm-1.41-20.3C1.46 3.93 1.25 4.5 1.25 5.2v13.6c0 .7.21 1.27.52 1.74l.1.09 7.62-7.62v-.18l-7.72-9.37zm17.44 6.91l-2.18-1.26-2.94 2.95 2.94 2.95 2.2-1.27c.63-.36.63-1.01 0-1.37zm-15.45 8.68 10.36-5.98-2.63-2.64-7.73 8.62z"/></svg>
-                Google Play
+                Pippi on Google Play
             </a>
         </div>
     </nav>
@@ -398,12 +416,12 @@
                     </p>
                     <div class="hero-counts reveal d3">
                         <div>
-                            <div class="hero-count-val">3</div>
-                            <div class="hero-count-label">Published apps</div>
+                            <div class="hero-count-val">1000+</div>
+                            <div class="hero-count-label">Active Users</div>
                         </div>
                         <div>
-                            <div class="hero-count-val">2</div>
-                            <div class="hero-count-label">Platforms</div>
+                            <div class="hero-count-val">3</div>
+                            <div class="hero-count-label">Published apps</div>
                         </div>
                         <div>
                             <div class="hero-count-val">Free</div>
@@ -412,16 +430,13 @@
                     </div>
                 </div>
 
-                <!-- Decorative SVG orbs -->
+                <!-- Decorative Orbs with App Icons -->
                 <div class="hero-orbs" aria-hidden="true">
-                    <svg width="220" height="260" viewBox="0 0 220 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="110" cy="70" r="56" fill="rgba(232,71,42,0.08)" stroke="rgba(232,71,42,0.15)" stroke-width="1"/>
-                        <circle cx="60" cy="170" r="38" fill="rgba(224,112,154,0.08)" stroke="rgba(224,112,154,0.15)" stroke-width="1"/>
-                        <circle cx="160" cy="190" r="44" fill="rgba(61,220,132,0.08)" stroke="rgba(61,220,132,0.15)" stroke-width="1"/>
-                        <text x="110" y="76" text-anchor="middle" fill="rgba(232,71,42,0.7)" font-size="28">📄</text>
-                        <text x="60" y="176" text-anchor="middle" fill="rgba(224,112,154,0.7)" font-size="20">🌸</text>
-                        <text x="160" y="197" text-anchor="middle" fill="rgba(61,220,132,0.7)" font-size="24">😊</text>
-                    </svg>
+                    <div style="position:relative; width:220px; height:260px;">
+                        <img src="assets/pdf-icon.webp" class="orb-1" alt="PDF Icon">
+                        <img src="assets/period-icon.png" class="orb-2" alt="Period Icon">
+                        <img src="assets/mood-icon.jpg" class="orb-3" alt="Mood Icon">
+                    </div>
                 </div>
             </div>
         </section>
@@ -438,7 +453,9 @@
                 ====================== -->
                 <article class="app-card pdf reveal" aria-label="PDF Reader & Converter app">
                     <div class="app-card-top">
-                        <div class="app-icon-wrap pdf" aria-hidden="true">📄</div>
+                        <div class="app-icon-wrap pdf" aria-hidden="true">
+                            <img src="assets/pdf-icon.webp" alt="PDF Reader Icon">
+                        </div>
                         <div class="app-platform-badges">
                             <span class="app-plat ios">iOS</span>
                             <span class="app-plat android">Android</span>
@@ -447,6 +464,9 @@
                     <div class="app-card-body">
                         <h2 class="app-name">PDF Reader &amp; Converter</h2>
                         <p class="app-tagline pdf">All-in-one PDF tool</p>
+                        <div class="app-publisher">
+                            <span>iOS: Nguyen Giap</span> &bull; <span>Android: Pippi</span>
+                        </div>
                         <p class="app-desc">
                             Scan documents with your camera, convert images to PDF, extract text with OCR, merge files, add e-signatures, and read any document — all offline.
                         </p>
@@ -479,16 +499,22 @@
                 ====================== -->
                 <article class="app-card period reveal d1" aria-label="Pippi Period Tracker app">
                     <div class="app-card-top">
-                        <div class="app-icon-wrap period" aria-hidden="true">🌸</div>
+                        <div class="app-icon-wrap period" aria-hidden="true">
+                            <img src="assets/period-icon.png" alt="Period Tracker Icon">
+                        </div>
                         <div class="app-platform-badges">
+                            <span class="app-plat highlight">1000+ Users</span>
                             <span class="app-plat android">Android</span>
                         </div>
                     </div>
                     <div class="app-card-body">
                         <h2 class="app-name">Pippi Period Tracker</h2>
                         <p class="app-tagline period">Cycle &amp; calendar</p>
+                        <div class="app-publisher">
+                            <span>Android: Pippi</span>
+                        </div>
                         <p class="app-desc">
-                            Track your menstrual cycle, predict upcoming periods and fertile days, and log symptoms — all in a simple, private calendar.
+                            Track your menstrual cycle, predict upcoming periods and fertile days, and log symptoms — all in a simple, private calendar. Join over 1000 active users!
                         </p>
                         <ul class="app-features" aria-label="Key features">
                             <li class="app-feature"><span class="app-feature-dot period" aria-hidden="true"></span>Period &amp; ovulation prediction</li>
@@ -506,7 +532,7 @@
                             Google Play
                         </a>
                         <span class="app-ios-note" aria-label="Android only">
-                            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
                             Android only
                         </span>
                     </div>
@@ -517,7 +543,9 @@
                 ====================== -->
                 <article class="app-card mood reveal d2" aria-label="Mood Tracker Daily Journal app">
                     <div class="app-card-top">
-                        <div class="app-icon-wrap mood" aria-hidden="true">😊</div>
+                        <div class="app-icon-wrap mood" aria-hidden="true">
+                            <img src="assets/mood-icon.jpg" alt="Mood Tracker Icon">
+                        </div>
                         <div class="app-platform-badges">
                             <span class="app-plat android">Android</span>
                         </div>
@@ -525,6 +553,9 @@
                     <div class="app-card-body">
                         <h2 class="app-name">Mood Tracker Daily Journal</h2>
                         <p class="app-tagline mood">Wellness &amp; journaling</p>
+                        <div class="app-publisher">
+                            <span>Android: Pippi</span>
+                        </div>
                         <p class="app-desc">
                             Log how you feel each day, write daily journal entries, and track your emotional patterns over time to build better mental wellness habits.
                         </p>
@@ -558,18 +589,23 @@
             <div class="dev-card reveal">
                 <div>
                     <p class="section-label" style="margin-bottom:1.25rem">About the developer</p>
-                    <h2 class="dev-h2">Nguyen Giap —<br>independent mobile developer</h2>
+                    <h2 class="dev-h2">Nguyễn Mạnh Dũng</h2>
                     <p class="dev-desc">
-                        Building focused, practical apps for iOS and Android. Each app solves a specific everyday problem — no bloat, no dark patterns, no unnecessary permissions.
+                        Independent mobile developer building focused, practical apps for iOS and Android. Each app solves a specific everyday problem — no bloat, no dark patterns, no unnecessary permissions.
                     </p>
+                    <ul class="dev-contact">
+                        <li><span>📍</span> Vietnam</li>
+                        <li><span>✉️</span> <a href="mailto:manhdung5a@gmail.com">manhdung5a@gmail.com</a></li>
+                        <li><span>📞</span> <a href="tel:0975563632">0975563632</a></li>
+                    </ul>
                     <div class="dev-links">
                         <a href="https://play.google.com/store/apps/dev?id=8268045918209277975"
                            class="dev-link primary" target="_blank" rel="noopener noreferrer">
-                            All apps on Google Play
+                            Android Apps (Pippi)
                         </a>
                         <a href="https://apps.apple.com/us/developer/nguyen-giap/id6773779077"
                            class="dev-link" target="_blank" rel="noopener noreferrer">
-                            App Store profile
+                            iOS Apps (Nguyen Giap)
                         </a>
                     </div>
                 </div>
@@ -579,12 +615,12 @@
                         <div class="dev-stat-label">Apps published</div>
                     </div>
                     <div class="dev-stat">
-                        <div class="dev-stat-val white">2</div>
-                        <div class="dev-stat-label">Platforms</div>
+                        <div class="dev-stat-val pink">1000+</div>
+                        <div class="dev-stat-label">Active Users</div>
                     </div>
                     <div class="dev-stat">
-                        <div class="dev-stat-val pink">2</div>
-                        <div class="dev-stat-label">Wellness apps</div>
+                        <div class="dev-stat-val white">VN</div>
+                        <div class="dev-stat-label">Based In</div>
                     </div>
                     <div class="dev-stat">
                         <div class="dev-stat-val green">Free</div>
@@ -598,7 +634,7 @@
 
     <footer>
         <div class="footer-inner">
-            <p class="footer-copy">&copy; 2026 Nguyen Giap. All rights reserved.</p>
+            <p class="footer-copy">&copy; 2026 Nguyễn Mạnh Dũng. All rights reserved.</p>
             <nav class="footer-nav" aria-label="Footer links">
                 <a href="#apps">Apps</a>
                 <a href="#about">About</a>
